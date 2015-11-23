@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DigitalArt</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="<%= root_path %>" class="brand-logo">Digital Art</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+          <ul class="right hide-on-med-and-down">
+
+            <li><%= link_to "Post",new_post_path %></li>
+            <li><%= link_to "Account", edit_user_registration_path %></li>
+            <% if user_signed_in? %>
+             <li><%= link_to "Timeline",timeline_user_path(current_user) %></li>
+             <li> <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %> </li>
+            <% end %>
+          </ul>
+
+
+
+          <ul class="side-nav" id="mobile-demo">
+
+            <li><%= link_to "Post",new_post_path %></li>
+            <li><%= link_to "Account", edit_user_registration_path %></li>
+            <% if user_signed_in? %>
+            <li><%= link_to "Timeline",timeline_user_path(current_user)  %></li>
+             <li> <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %> </li>
+            <% end %>
+          </ul>
+
+    </div>
+  </nav>
+
+
+
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<div class="Yeildsize">
+<%= yield %>
+</div>
+<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">About Us</h5>
+                <p class="grey-text text-lighten-4">We provide services to improve your business through our Digital Art platform explore us to know more</p>
+              </div>
+              <div class="col l2 offset-l4 s12">
+                <h5 class="white-text">Social</h5>
+                <ul>
+                  <a class="grey-text text-lighten-3" href="#!"><%= image_tag("facebook.png", height: '32', width: '32') %></a>&nbsp;&nbsp;&nbsp;
+                  <a class="grey-text text-lighten-3" href="#!"><%= image_tag("twitter.png", height: '32', width: '32') %></a>&nbsp;&nbsp;&nbsp;
+                  <a class="grey-text text-lighten-3" href="#!"><%= image_tag("google plus.png", height: '32', width: '32') %></a>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2015 Digital Art Gallery
+            </div>
+          </div>
+        </footer>
+
+
+
+</body>
+</html>

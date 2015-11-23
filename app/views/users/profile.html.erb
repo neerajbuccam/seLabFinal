@@ -1,0 +1,8 @@
+<%= @user.email %>
+
+<% if current_user.following?(@user) %>
+ <%= link_to "Unfollow", Unfollow_user_path(@user) %>
+
+<% else %>
+<%= link_to "follow",follow_user_path(@user) %>
+<% end %>

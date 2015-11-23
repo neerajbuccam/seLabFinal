@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col">
+  <div class="Avatar l8 s12">
+    <%=image_tag @post.image.url(:medium) %>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+<br>
+
+
+<%= @post.get_upvotes.size %>
+<div id="comment">
+
+<% @comments.each do |comment| %>
+
+  User: <%= comment.user.email %> <br>
+  Comment: <%= comment.content %>
+  <hr>
+<% end %>
+</div>
+
+<%=  render("comments/form") %>

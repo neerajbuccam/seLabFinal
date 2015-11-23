@@ -1,0 +1,16 @@
+@import "materialize/components/color";
+$primary-color: color("yellow", "darken-2") !default;
+@import "materialize";
+
+.like{
+display: inline;
+margin-right: 15px;
+}
+
+.dislike{
+  display: inline;
+}
+
+.Yeildsize{
+  min-height: 33em;
+}

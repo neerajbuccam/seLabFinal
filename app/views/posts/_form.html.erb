@@ -1,0 +1,40 @@
+<div class="container">
+<%= form_for @post do |f| %>
+<div class="field input-field col ">
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+</div>
+<div class="field ">
+    <%= f.label :description %>
+  <%= f.text_area(:description, size: '50x10') %>
+
+</div>
+<div class="input-field col s12">
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+</div>
+
+<div class="field">
+  <%= f.check_box :download %>
+  <%= f.label :download %>
+</div>
+<div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <%= f.file_field :image %>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+
+
+<div class ="field" >
+<%= f.submit %>
+</div>
+
+<!-- <%= f.select(:category,['Anime','Cartoon','Devotional']) %>
+<%= f.label :category %> -->
+<% end %>
+</div>

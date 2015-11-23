@@ -1,0 +1,69 @@
+header.nav-is-visible {
+  transform: translateX(-260px);
+}
+.cd-main-content.nav-is-visible {
+  transform: translateX(-260px);
+}
+.cd-main-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 260px;
+  visibility: hidden;
+}
+.cd-main-nav.nav-is-visible {
+  visibility: visible;
+}
+.cd-main-nav li ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateX(260px);
+}
+.cd-main-nav.moves-out > li > a {
+  /* push the navigation items to the left - and lower down opacity - when secondary nav slides in */
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.cd-main-nav.moves-out > li > ul {
+  /* reveal secondary nav */
+  transform: translateX(0);
+}
+@media only screen and (min-width: 1024px) {
+  .cd-main-nav {
+    height: 80px;
+    /* padding left = logo size + logo left position*/
+    padding: 0 5% 0 calc(5% + 124px);
+    text-align: right;
+  }
+  .cd-main-nav li ul {
+    height: 80px;
+    background-color: #7e4d7e;
+    /* padding left = logo size + logo left position*/
+    padding: 0 5% 0 calc(5% + 124px);
+    transform: translateY(-80px);
+    transition: transform 0.3s 0.2s;
+  }
+  .cd-main-nav li ul li {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: transform 0.3s 0s, opacity 0.3s 0s;
+  }
+  .cd-main-nav .placeholder {
+    /* never visible or clickable- it is used to take up the same space as the .cd-subnav-trigger */
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    pointer-event: none;
+  }
+  .cd-main-nav.moves-out > li > ul {
+    transition: transform 0.3s;
+    transform: translateY(0);
+  }
+  .cd-main-nav.moves-out > li ul li {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.3s 0.2s, opacity 0.3s 0.2s;
+  }
+}
